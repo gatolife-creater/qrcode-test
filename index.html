@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script> 
+<script type="text/JavaScript"> 
+    $(function(){
+      var qrtext ="https://www.youtube.com/ ";
+      var utf8qrtext = unescape(encodeURIComponent(qrtext));
+      $("#img-qr").html("");
+      $("#img-qr").qrcode({text:utf8qrtext}); 
+    });
+    function generate(){
+      let url= $("#input-url").val();
+      console.log(url);
+      let utf8qrtext=unescape(encodeURIComponent(url));
+      $("#img-qr").html("");
+      $("#img-qr").qrcode({text:utf8qrtext}); 
+    }
+    </script>
+</head>
+<body>
+<div id="img-qr"></div>
+<form onsubmit="generate();return false;">
+  <input id="input-url" type="text" placeholder="ここにURLを入力">
+</form>
+</body>
+</html>
